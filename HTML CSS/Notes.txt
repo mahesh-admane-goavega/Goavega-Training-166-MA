@@ -1,0 +1,130 @@
+	       NOTES[HTML/CSS]
+================================================
+type of css:
+		Inline CSS
+		Internal or Embedded CSS
+		External CSS
+
+in html id	---->	use # in css
+in html class   ----> 	use . in css
+================================================
+Psuedo class: use for first last element definig
+						
+li: first-child{				
+font-weight: bold;
+}
+
+it will target that perticular element...
+=================================================
+LVHA- Link, Visited, Hover, Active
+Always specify this
+=================================================
+Selector priority
+Lowest to Highest--->
+
+0. Universal Selector (*)
+1. Element Selector (li, h1, h2)
+2. Class Slector (.)
+3. Id selector (#)
+4. Inline Style (Style attribute in html)
+5. Declaration marked ! Imortant
+
+[Universal Selector: It select every element 
+ on the page]
+=================================================
+Inheritance in css
+=================================================
+Final Element Width= left border + left padding
++ width + right padding + right border
+
+Margin=outside
+padding=inside
+=================================================
+pseudo classes: [:]  
+pseudo element: [::] 
+
+=================================================
+###Dev Tools###
+1. Html validator: We can check our code 
+where problem is occurs there.
+2. DiffChecker: we can diffrentiate 
+our code with others code
+3. codepen.io: for practice
+
+=================================================
+Layout: 1. page Layout 2. component layout
+float layout, flexbox, css grid 
+ 
+in css we define width in percentage 
+and height in pixel
+
+Note: when you see problem of floatig simply 
+that case add clear: both; property in css.
+
+Css Grid 
+
+fr Unit
+we can write repeat(4, 1fr); also
+-------------------------------------------------------
+Resources:
+Unplash: for images
+uifaces: for faces 
+tint and shades.com: for perfrct color combination
+-------------------------------------------------------
+1 rem= 16px (default)
+
+
+
+
+
+
+===========================================================
+		    NOTES[JAVA-SCRIPT]
+
+(ES6)Modules: If I want to use variable function classes into another js file then
+we use modules.
+step-1: Add in Html file this <script type="module" src="./script1.js" ><script/>
+step-2: Add in Html file this second <script type="module" src="./script2.js" ><script/>
+step-3: which variable function classes you want add export keyword there
+step-4: In 2nd file add import keyword.
+-we can using * import or export all variable function classes in js file
+------------------------------------------------------------------------------------
+(Es6)Promises: Promises going to three stages 1. pending, 2. fulfilled, 3. Rejected
+
+Promise()==> reslove()==> then()
+Promise()==> reject()==> catch()
+
+-then and fetch are callback inbuilt function in Js
+Step-1: Declare new promise==> let prom =new Promise();
+Step-2: Define New Function in that==>
+				 let prom=new Promise(function(){
+								  });
+Step-3: Define our function in that: 
+					 let prom=new Promise(function(resolve, reject){
+											});
+Step-4: For calling js provide inbuild function then() and catch() we can use prom.then(), prom.catch()
+
+
+---------------------------------------------------------------------------------------
+Async Function:-
+- It work same as promise It will reslove  or reject
+
+Await Function:- 
+- If we declare await IT says like wait till this task is finish after finish first check and then execute next line code
+- It will work in Async If we use it without async then it will throws error
+----------------------------------------------------------------------------------------
+Symbol: Symbol create unique value.
+var x=symbol();
+var x=symbol("Hello");
+var y=symbol("Hello");
+console.log(x==y); //false
+
+-----------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
