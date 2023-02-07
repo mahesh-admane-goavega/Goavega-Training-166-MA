@@ -1,0 +1,54 @@
+* {
+  font-family: sans-serif;
+}
+
+h1 {
+  color: white;
+  font-family: sans-serif;
+  font-size: 26px;
+  text-transform: uppercase;
+  font-style: inherit;
+}
+h2 {
+  font-size: 20px;
+  font-family: sans-serif;
+}
+
+p,
+li,
+footer {
+  font-family: sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.header {
+  background-color: rgb(54, 54, 54);
+  color: aliceblue;
+  align-content: center;
+}
+
+.container {
+  margin: 0 40px;
+}
+
+h3 {
+  font-family: sans-serif;
+  font-size: 20px;
+}
+
+nav a:link,
+a:visited,
+a:active {
+  color: antiquewhite;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: rgb(244, 244, 5);
+  background-color: brown;
+  border: rgb(54, 54, 54);
+}
+nav a::before {
+  text-shadow: 2px;
+}

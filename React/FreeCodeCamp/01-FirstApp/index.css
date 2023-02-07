@@ -1,0 +1,36 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: hwb(33 84% 2%);
+
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.nav-items {
+  list-style: none;
+  display: flex;
+}
+.nav-items > li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.nav-logo {
+  width: 60px;
+}
+
+.footer {
+  text-align: center;
+  background-color: rgb(49, 47, 47);
+}
+
+.footer,
+small {
+  color: aliceblue;
+}
+
+.body-ele {
+  margin-left: 40px;
+  margin-right: 40px;
+}

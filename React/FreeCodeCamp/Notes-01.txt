@@ -1,0 +1,74 @@
+Declarative: What should be done? ::: "Just tell me what to do"
+Imperative: How should it be done
+-----------------------------------------------------------------
+
+Vanilla JavaScript:
+==================
+const h1 = document.createElement("h1");
+h1.textContent = "Hello Mahesh";
+h1.className = "header";
+document.getElementById("root").append(h1);
+
+JSX (JavaScriptXML)
+ 
+ReactDOM.render(
+  <h1 className="header">Hello Admane</h1>,
+  document.getElementById("root")
+);
+___________________________________________________________________
+Quiz-01
+
+1. Why do we need to `import React from "react"` in our files?
+Ans=> Because we want to use html in our react app like jsx for that purpose it need.
+
+2. If I were to console.log(page) in index.js, what would show up?
+Ans=> There it will show objcet Because in Js jsx is in object form
+
+3. What's wrong with this code:
+```
+const page = (
+    <h1>Hello</h1>
+    <p>This is my website!</p>
+)
+```
+Ans=> Here we use multiple element but we are not wrap it in a single element that's why it showing error.
+
+
+4. What does it mean for something to be "declarative" instead of "imperative"?
+Ans=> declarative meanse what should be done and imperative meanse How should we done. 
+
+5. What does it mean for something to be "composable"?
+Ans=> Small pieces for make something larger.
+___________________________________________________________________
+Quiz-02
+
+1. What is a React component?
+Ans=> Using React component we can make pieces of our our big website.
+
+2. What's wrong with this code?
+
+```
+function myComponent() {
+    return (
+        <small>I'm tiny text!</small>
+    )
+}
+```
+Ans=>Here Method name is not correct first letter of method name should be capital.
+
+3. What's wrong with this code?
+```
+function Header() {
+    return (
+        <header>
+            <nav>
+                <img src="./react-logo.png" width="40px" />
+            </nav>
+        </header>
+    )
+}
+
+ReactDOM.render(Header(), document.getElementById("root"))
+```
+Ans=> We are added here just method name instead of this we can use like this <Header/>
+___________________________________________________________________

@@ -1,0 +1,15 @@
+* {
+  height: 0;
+  width: 0;
+}
+
+h1 {
+  font-size: 6rem;
+}
+
+h1,
+p {
+  font-weight: 400;
+  margin: 10rem 18rem;
+  color: rgb(47, 45, 42);
+}

@@ -1,0 +1,39 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.profile {
+  width: 350px;
+  border-radius: 10px;
+  box-shadow: 2.3px 0px 7.5px rgb(0 0 0 / 25%);
+}
+
+.card {
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 400px;
+  padding: 22px;
+  box-shadow: 2.3px 2.3px 7.5px rgb(0 0 0 / 25%);
+}
+
+h3 {
+  color: brown;
+}
+
+h5 {
+  font-size: 18px;
+  margin-bottom: 0;
+}
+
+p {
+  margin-bottom: 0;
+}
+
+.btns {
+  margin-top: 22px;
+  display: flex;
+  flex-direction: row;
+}

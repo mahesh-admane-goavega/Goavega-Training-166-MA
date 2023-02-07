@@ -1,0 +1,15 @@
+.container {
+  display: block;
+  border: 1px none;
+  text-align: center;
+  margin-left: 30%;
+  margin-right: 30%;
+  padding: 5%;
+}
+
+.flogo {
+  width: 300px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
