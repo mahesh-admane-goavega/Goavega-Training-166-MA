@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import Dies from "./Dies";
 import { nanoid } from "nanoid";
-// import Confetti from "react-confetti";
+import Confetti from "react-confetti";
 
 function App() {
   const [dies, setDies] = React.useState(allNewDies());
@@ -37,11 +37,16 @@ function App() {
   }
 
   function rollDies() {
-    setDies((oldDies) =>
-      oldDies.map((die) => {
-        return die.isHeld ? die : generateNewDie();
-      })
-    );
+    if (!tenz) {
+      setDies((oldDies) =>
+        oldDies.map((die) => {
+          return die.isHeld ? die : generateNewDie();
+        })
+      );
+    } else {
+      setTenz(false);
+      setDies(allNewDies());
+    }
   }
 
   function holdDice(id) {
@@ -64,7 +69,7 @@ function App() {
 
   return (
     <main>
-      {/* {tenz && <Confetti />} */}
+      {tenz && <Confetti />}
       <h1 className="title">Tenzies</h1>
       <p className="instructions">
         Roll until all dice are the same. Click each die to freeze it at its
