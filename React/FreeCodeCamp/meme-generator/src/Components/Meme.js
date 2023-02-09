@@ -14,7 +14,7 @@ export default function Meme() {
     fetch("https://api.imgflip.com/get_memes")
       .then((resp) => resp.json())
       .then((data) => setAllMemes(data.data.memes));
-  });
+  }, []);
 
   // for get meme image
   function getMemeImage() {

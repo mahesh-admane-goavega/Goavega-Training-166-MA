@@ -1,0 +1,82 @@
+* {
+  box-sizing: border-box;
+  font-family: "karala", sans-serif;
+}
+
+/*
+    main Color: #010153
+
+*/
+
+/* Intro Css */
+
+.intro--box {
+  width: 300px;
+  height: 150px;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.intro--title {
+  font-size: 20px;
+  color: #010153;
+  margin-bottom: 0;
+}
+
+.intro--desc {
+  font-size: 8px;
+  color: #010153;
+}
+
+.intro--btn,
+.submit--btn {
+  background-color: #4d5b9e;
+  border: none;
+  border-radius: 5px;
+  width: 80px;
+  height: 25px;
+  cursor: pointer;
+  color: aliceblue;
+  transition: all 0.5s;
+}
+.intro--btn:hover,
+.submit--btn:hover {
+  background-color: #27336e;
+}
+
+/* question css */
+.que--box {
+  background-color: aliceblue;
+  padding-top: 10px;
+  border-radius: 2px;
+}
+
+.que--title {
+  font-size: 10px;
+}
+
+.que--ansbox {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  margin: 12px;
+}
+
+.que--btn {
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+  font-size: 6px;
+  padding: 4px 8px;
+  cursor: pointer;
+  background-color: #a7b5fe;
+  transition: all 0.6s;
+}
+
+.que--btn:hover {
+  background-color: #95a6f8;
+}
