@@ -90,3 +90,11 @@ li.dropdown {
   font-size: 18px;
   background-color: antiquewhite;
 }
+
+.comment--box {
+  background-color: antiquewhite;
+  height: 18px;
+  width: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+}

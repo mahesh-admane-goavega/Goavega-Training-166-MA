@@ -2,10 +2,6 @@ import React from "react";
 import DropdownComp from "./DropdownComp";
 
 export default function Nav(props) {
-  const dmc = props.allDtat.map((item) => {
-    return <DropdownComp onClick={props.click} key={item.id} id={item.id} />;
-  });
-
   return (
     <nav>
       <ul>
@@ -16,7 +12,17 @@ export default function Nav(props) {
           <a href="javascript:void(0)" className="dropbtn">
             Users
           </a>
-          <div className="dropdown-content">{dmc}</div>
+          <div className="dropdown-content">
+            {props.allDtat.map((item) => {
+              return (
+                <DropdownComp
+                  onClick={props.click}
+                  key={item.id}
+                  id={item.id}
+                />
+              );
+            })}
+          </div>
         </li>
       </ul>
     </nav>

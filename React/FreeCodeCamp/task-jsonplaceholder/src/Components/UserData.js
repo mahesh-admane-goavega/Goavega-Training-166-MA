@@ -12,12 +12,13 @@ export default function UserData(props) {
 
   const card = post.map((item) => {
     console.log(item);
-    return <Post title={item.title} body={item.body} />;
+    return <Post id={item.id} title={item.title} body={item.body} />;
   });
 
   return (
     <div>
       <div className="user--data">
+        <h2 className="user--name">ID: {props.uData.id}</h2>
         <h2 className="user--name">Name: {props.uData.name}</h2>
         <h2 className="user--name">UserName: {props.uData.username}</h2>
         <div>
