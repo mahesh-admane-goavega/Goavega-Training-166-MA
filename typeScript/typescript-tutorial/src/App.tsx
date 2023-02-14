@@ -1,75 +1,92 @@
-import React from "react";
-import logo from "./logo.svg";
+import React, { useState } from "react";
 import "./App.css";
-import { type } from "os";
+import InputFeild from "./Components/InputFeild";
+import { Todo } from "./Model";
+import TodoList from "./Components/TodoList";
 
-/***  Basic Type ***/
-let m: number;
-m = 99;
-let o: string;
-o = "ram";
-let isStudent: boolean;
-let hobbies: string[];
-let role: [number, string];
+// /***  Basic Type ***/
+// let m: number;
+// m = 99;
+// let o: string;
+// o = "ram";
+// let isStudent: boolean;
+// let hobbies: string[];
+// let role: [number, string];
 
-/***  Object Type ***/
-type Person = {
-  name: string;
-  age: number;
-};
-
-let mahesh: Person = {
-  name: "MAhesh",
-  age: 78,
-};
-// let mahesha: Person = {
-//   name: "MAhesh",
-//   // if age is not define it show error
+// /***  Object Type ***/
+// type Person = {
+//   name: string;
+//   age: number;
 // };
 
-/*** Optional Field ***/
+// let mahesh: Person = {
+//   name: "MAhesh",
+//   age: 78,
+// };
+// // let mahesha: Person = {
+// //   name: "MAhesh",
+// //   // if age is not define it show error
+// // };
 
-type Student = {
-  name: string;
-  rollNo?: number; // we added ? here for optional
-};
+// /*** Optional Field ***/
 
-//need to add only name here
-let Suhas: Student = {
-  name: "Suhas",
-};
+// type Student = {
+//   name: string;
+//   rollNo?: number; // we added ? here for optional
+// };
 
-/*** Array of object ***/
-let lotsOfPeople = [];
+// //need to add only name here
+// let Suhas: Student = {
+//   name: "Suhas",
+// };
 
-/*** Union Type ***/
-let n: string | number;
+// /*** Array of object ***/
+// let lotsOfPeople = [];
 
-/*** Function Type ***/
-let printLAstName: (name: string) => number; // return number
-let printName: (name: string) => never; // "never" does't return anything "void" return undefined
+// /*** Union Type ***/
+// let n: string | number;
 
-/*** Unknown Type ***/
-let personName: unknown;
-personName = true; // we can pass anything here
+// /*** Function Type ***/
+// let printLAstName: (name: string) => number; // return number
+// let printName: (name: string) => never; // "never" does't return anything "void" return undefined
 
-/*** Interface Type ***/
-interface Employee {
-  emp_name: string;
-  emp_id: number;
-  emp_sal: number;
-}
+// /*** Unknown Type ***/
+// let personName: unknown;
+// personName = true; // we can pass anything here
 
-interface Person1 extends Employee {
-  emp_address: string;
-}
+// /*** Interface Type ***/
+// interface Employee {
+//   emp_name: string;
+//   emp_id: number;
+//   emp_sal: number;
+// }
 
-function App() {
+// interface Person1 extends Employee {
+//   emp_address: string;
+// }
+
+const App: React.FC = () => {
+  const [todo, setTodo] = useState<string>("");
+  const [todos, setTodos] = useState<Todo[]>([]);
+  console.log(todo);
+
+  const handleAdd = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (todo) {
+      setTodos([...todos, { id: Date.now(), todo, isDone: false }]);
+      setTodo("");
+    }
+  };
+
+  console.log(todos);
+
   return (
     <div className="App">
-      <h1>Hello</h1>
+      <span className="heading">Taskify</span>
+      <InputFeild todo={todo} setTodo={setTodo} handleAdd={handleAdd} />
+      <TodoList todos={todos} setTodos={setTodos} />
     </div>
   );
-}
+};
 
 export default App;
