@@ -1,6 +1,7 @@
 import React from "react";
-import UserDetails from "./UserDetails";
-import UserList from "./UserList";
+import { PostList } from "../Posts/PostList";
+import UserDetails from "../Users/UserDetails";
+import UserList from "../Users/UserList";
 
 const MainScreen = () => {
   return (
@@ -10,6 +11,9 @@ const MainScreen = () => {
       </div>
       <div>
         <UserDetails />
+      </div>
+      <div>
+        <PostList />
       </div>
     </div>
   );

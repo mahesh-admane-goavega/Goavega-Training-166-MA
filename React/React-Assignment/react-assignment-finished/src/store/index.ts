@@ -24,11 +24,6 @@ export const loadingStore = proxy({
   loading: false,
 });
 
-// subscribeKey(userStore, "selectedUser", () => {
-//   console.log("user store chaged");
-//   PostManager.getAll();
-// });
-
 subscribeKey(userStore, "selectedUser", () => {
   console.log("User Stored");
   PostManager.getAll();

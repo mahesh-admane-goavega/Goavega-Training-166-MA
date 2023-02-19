@@ -10,3 +10,4 @@ export class PostService {
     return response.data;
   };
 }
+

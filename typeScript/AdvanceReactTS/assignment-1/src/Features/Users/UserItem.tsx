@@ -9,6 +9,7 @@ interface Props {
 const UserItem = ({ user }: Props) => {
   const userClick = () => {
     UserManager.selectUser(user);
+    console.log(user);
   };
 
   return (

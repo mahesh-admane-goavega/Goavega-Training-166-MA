@@ -4,6 +4,7 @@ import { userStore } from "../Store";
 export class UserManager {
   static getAllUsers = async () => {
     const users = await UserService.getAll();
+    if (!users) return;
     userStore.users = users;
   };
 

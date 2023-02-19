@@ -4,3 +4,9 @@ export interface userType {
   name: string;
   email: string;
 }
+
+//type of post
+export interface postType {
+  title: string;
+  id: number;
+}
