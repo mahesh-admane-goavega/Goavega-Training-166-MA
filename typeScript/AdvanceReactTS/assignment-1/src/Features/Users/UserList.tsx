@@ -15,11 +15,14 @@ const UserList = () => {
     loadUser();
   }, []);
   return (
-    <ul>
-      {users.map((i) => (
-        <UserItem user={i} />
-      ))}
-    </ul>
+    <>
+      <h2>All-Users</h2>
+      <ul className="list-group">
+        {users.map((i) => (
+          <UserItem user={i} />
+        ))}
+      </ul>
+    </>
   );
 };
 

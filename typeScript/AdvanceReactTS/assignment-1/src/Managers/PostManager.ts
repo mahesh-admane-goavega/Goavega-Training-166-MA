@@ -1,13 +1,19 @@
+import { postType } from "../Model";
 import { PostServices } from "../Services/PostServices";
 import { postStore, userStore } from "../Store";
+import { CommentManager } from "./CommentManager";
 
 export class PostManager {
   static getAll = async () => {
     const user = userStore.selectedUser;
-    console.log(user);
     const posts = await PostServices.getPost(user?.id);
     if (!posts) return;
     postStore.posts = posts;
-    userStore.selectedUser = user;
   };
+
+  static selectPost(post: postType) {
+    var newPost = { ...post };
+    postStore.selectedPost = newPost;
+    CommentManager.getAll();
+  }
 }

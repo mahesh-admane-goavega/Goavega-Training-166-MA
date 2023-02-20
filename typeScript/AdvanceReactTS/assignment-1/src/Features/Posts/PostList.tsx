@@ -10,21 +10,14 @@ import { PostItem } from "./PostItem";
 export const PostList = () => {
   const { posts } = useSnapshot(postStore);
 
-  const loadPost = async () => {
-    await PostManager.getAll();
-  };
-
-  React.useEffect(() => {
-    loadPost();
-  }, []);
-
   return (
-    <ul>
-      {posts.map((i) => (
-        <PostItem post={i} />
-      ))}
-      <li>Hello</li>
-      <li>Ok</li>
-    </ul>
+    <>
+      <h2 className="mt-5">Post-List</h2>
+      <ul className="p-5">
+        {posts.map((i) => (
+          <PostItem post={i} />
+        ))}
+      </ul>
+    </>
   );
 };

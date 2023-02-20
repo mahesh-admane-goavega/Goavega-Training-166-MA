@@ -8,7 +8,11 @@ interface PostItemProps {
 }
 
 const PostItem = ({ post }: PostItemProps) => {
-  return <li className="list-group-item"> {post.title}</li>;
+  return (
+    <li className="list-group-item">
+      ({post.id}) {post.title}
+    </li>
+  );
 };
 
 export default PostItem;

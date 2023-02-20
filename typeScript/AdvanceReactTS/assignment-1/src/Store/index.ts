@@ -1,7 +1,7 @@
 import { proxy } from "valtio";
 import { subscribeKey } from "valtio/utils";
 import { PostManager } from "../Managers/PostManager";
-import { postType, userType } from "../Model";
+import { commentType, postType, userType } from "../Model";
 
 // Store for Users
 interface userStoreType {
@@ -16,13 +16,22 @@ export const userStore = proxy<userStoreType>({
 // Store for Post
 interface postStoreType {
   posts: postType[];
+  selectedPost?: postType;
 }
 
 export const postStore = proxy<postStoreType>({
   posts: [],
 });
+export const loadingStore = proxy({
+  loading: false,
+});
 
-subscribeKey(userStore, "selectedUser", () => {
-  console.log("User is Stored");
-  PostManager.getAll();
+// store for commment
+
+interface commentStoreType {
+  comments: commentType[];
+}
+
+export const commentStore = proxy<commentStoreType>({
+  comments: [],
 });

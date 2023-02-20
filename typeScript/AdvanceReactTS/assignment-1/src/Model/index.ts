@@ -9,4 +9,14 @@ export interface userType {
 export interface postType {
   title: string;
   id: number;
+  body: string;
+}
+
+//type of comment
+
+export interface commentType {
+  id: number;
+  name: string;
+  email: string;
+  body: string;
 }

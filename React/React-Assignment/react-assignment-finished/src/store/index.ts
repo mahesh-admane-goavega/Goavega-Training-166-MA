@@ -1,4 +1,4 @@
-import { proxy, subscribe } from "valtio";
+import { proxy } from "valtio";
 import { subscribeKey } from "valtio/utils";
 import { PostManager } from "../managers/PostManager";
 import { User, Post } from "../models";
@@ -26,5 +26,6 @@ export const loadingStore = proxy({
 
 subscribeKey(userStore, "selectedUser", () => {
   console.log("User Stored");
+  console.log(userStore.selectedUser?.id);
   PostManager.getAll();
 });

@@ -1,20 +1,27 @@
 import React from "react";
+import { useSnapshot } from "valtio";
 import { UserManager } from "../../Managers/UserManager";
 import { userType } from "../../Model";
+import { userStore } from "../../Store";
 
 interface Props {
   user: userType;
 }
 
 const UserItem = ({ user }: Props) => {
+  const { selectedUser } = useSnapshot(userStore);
+  const isSelectedUser = selectedUser?.id === user.id;
+
   const userClick = () => {
     UserManager.selectUser(user);
-    console.log(user);
   };
 
   return (
-    <li className="list--item" onClick={userClick}>
-      ({user.id}) {user.name}
+    <li
+      className={`list-group-item  ${isSelectedUser ? "active" : ""} `}
+      onClick={userClick}
+    >
+      {user.name}
     </li>
   );
 };

@@ -6,7 +6,6 @@ export class UserManager {
   static getAll = async () => {
     const users = await UserService.getAll();
     if (!users) return;
-
     userStore.users = users;
   };
 

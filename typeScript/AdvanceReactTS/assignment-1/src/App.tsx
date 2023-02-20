@@ -4,7 +4,9 @@ import MainScreen from "./Features/Main/MainScreen";
 function App() {
   return (
     <div className="App">
-      <MainScreen />
+      <div className="container">
+        <MainScreen />
+      </div>
     </div>
   );
 }
