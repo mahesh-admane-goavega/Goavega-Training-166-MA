@@ -1,6 +1,6 @@
 import React from "react";
 import { CommentList } from "../Comments/CommentList";
-import { PostDetails } from "../Posts/PostDetails";
+import { NewPostInput } from "../Posts/NewPostInput";
 import { PostList } from "../Posts/PostList";
 import UserDetails from "../Users/UserDetails";
 import UserList from "../Users/UserList";
@@ -14,6 +14,7 @@ const MainScreen = () => {
       </div>
       <div className="col-md-8">
         <UserDetails />
+        <NewPostInput />
         <PostList />
       </div>
     </div>

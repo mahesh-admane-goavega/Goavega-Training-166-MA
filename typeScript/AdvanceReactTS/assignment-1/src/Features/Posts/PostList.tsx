@@ -10,6 +10,14 @@ import { PostItem } from "./PostItem";
 export const PostList = () => {
   const { posts } = useSnapshot(postStore);
 
+  // const loadUser = async () => {
+  //   await PostManager.getAll();
+  // };
+
+  // React.useEffect(() => {
+  //   loadUser();
+  // }, []);
+
   return (
     <>
       <h2 className="mt-5">Post-List</h2>

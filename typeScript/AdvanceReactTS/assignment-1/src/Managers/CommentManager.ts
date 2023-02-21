@@ -9,6 +9,5 @@ export class CommentManager {
     const comment = await CommentServices.getAllComment(post?.id);
     if (!comment) return;
     commentStore.comments = comment;
-    console.log("from comment Manager", comment);
   };
 }

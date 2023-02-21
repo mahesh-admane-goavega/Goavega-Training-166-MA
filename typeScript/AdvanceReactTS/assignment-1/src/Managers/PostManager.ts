@@ -1,4 +1,5 @@
 import { postType } from "../Model";
+import { CreatePostServices } from "../Services/CreatePostServices";
 import { PostServices } from "../Services/PostServices";
 import { postStore, userStore } from "../Store";
 import { CommentManager } from "./CommentManager";
@@ -15,5 +16,9 @@ export class PostManager {
     var newPost = { ...post };
     postStore.selectedPost = newPost;
     CommentManager.getAll();
+  }
+
+  static addPost(post: postType) {
+    CreatePostServices.createPost(post);
   }
 }

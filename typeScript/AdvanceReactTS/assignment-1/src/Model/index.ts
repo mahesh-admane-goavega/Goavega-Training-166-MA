@@ -7,16 +7,16 @@ export interface userType {
 
 //type of post
 export interface postType {
-  title: string;
   id: number;
+  title: string;
   body: string;
 }
 
 //type of comment
-
 export interface commentType {
   id: number;
   name: string;
   email: string;
   body: string;
 }
+

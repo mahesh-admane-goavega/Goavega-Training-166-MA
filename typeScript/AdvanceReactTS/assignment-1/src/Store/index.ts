@@ -35,3 +35,10 @@ interface commentStoreType {
 export const commentStore = proxy<commentStoreType>({
   comments: [],
 });
+
+// state for newPost
+interface newPostType {
+  post?: postType;
+}
+
+export const newPostStore = proxy<newPostType>({});

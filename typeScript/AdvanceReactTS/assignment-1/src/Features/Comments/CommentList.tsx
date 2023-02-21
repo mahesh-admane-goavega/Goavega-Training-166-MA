@@ -1,14 +1,12 @@
 import React from "react";
 import { useSnapshot } from "valtio";
 import { commentStore } from "../../Store";
-import { PostDetails } from "../Posts/PostDetails";
 import { CommentItem } from "./CommentItem";
 
 // type Props = {}
 
 export const CommentList = () => {
   const { comments } = useSnapshot(commentStore);
-  console.log(comments);
 
   return (
     <>
