@@ -4,9 +4,6 @@ import { CommentManager } from "../../Managers/CommentManager";
 import { PostManager } from "../../Managers/PostManager";
 import { postType } from "../../Model";
 import { postStore } from "../../Store";
-// import "bootstrap/js/src/collapse.js";
-// import "../node_modules/jquery/dist/jquery.min.js";
-// import "../node_modules/bootstrap/dist/js/bootstrap.min.js";
 
 type Props = {
   post: postType;

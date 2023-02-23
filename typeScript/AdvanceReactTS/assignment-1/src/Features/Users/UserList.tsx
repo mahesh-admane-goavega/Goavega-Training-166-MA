@@ -7,6 +7,8 @@ import UserItem from "./UserItem";
 const UserList = () => {
   const { users } = useSnapshot(userStore);
 
+  // console.log("This my users", JSON.parse(JSON.stringify(users)));
+  console.log(users);
   const loadUser = async () => {
     await UserManager.getAllUsers();
   };

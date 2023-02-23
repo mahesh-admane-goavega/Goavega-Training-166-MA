@@ -19,4 +19,3 @@ export interface commentType {
   email: string;
   body: string;
 }
-
