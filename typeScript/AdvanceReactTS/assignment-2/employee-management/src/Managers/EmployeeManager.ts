@@ -17,11 +17,13 @@ export class EmployeeManager {
   // delete by using id
   static deleteById = async (id: number) => {
     await EmployeeServices.deleteData(id);
+    this.getAll();
   };
 
   // add new emp
   static addNewEmp = async (emp: responseEmployee) => {
     console.log("EmpMngr", emp);
     const newEmp = await EmployeeServices.addNewEmployee(emp);
+    this.getAll();
   };
 }

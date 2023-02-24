@@ -1,12 +1,7 @@
-import { EmployeeManager } from "../Managers/EmployeeManager";
-import {
-  empApiResp,
-  employee,
-  responseEmployee,
-} from "../Model/EmployeeApiResponse";
+import { empApiResp, responseEmployee } from "../Model/EmployeeApiResponse";
 import api from "./strapiApi";
 
-//fetch data uing base url
+// fetch data uing base url
 export class EmployeeServices {
   static getAll = async () => {
     const resp = await api.get<empApiResp>("/employees").catch(() => null);
@@ -16,13 +11,15 @@ export class EmployeeServices {
 
   // deleting employee
   static deleteData = async (id: number) => {
-    await api.delete<empApiResp>(`/employees/${id}`).catch(() => null);
-    return EmployeeManager.getAll();
+    const emp = await api
+      .delete<empApiResp>(`/employees/${id}`)
+      .catch(() => null);
+    return emp;
   };
 
   // creating employee response
   static addNewEmployee = async (emp: responseEmployee) => {
-    await api
+    const newEmp = await api
       .post<empApiResp>("/employees", {
         data: {
           Full_Name: emp.data.Full_Name,
@@ -31,7 +28,7 @@ export class EmployeeServices {
         },
       })
       .catch(() => null);
-    return EmployeeManager.getAll();
+    return newEmp;
   };
 
   // update employe

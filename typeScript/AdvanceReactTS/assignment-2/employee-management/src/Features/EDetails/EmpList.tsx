@@ -6,15 +6,12 @@ import { employeeStore } from "../../Store";
 import { EmpDetail } from "./EmpDetail";
 import { Link, Routes, Route, useNavigate } from "react-router-dom";
 import { NewEmpAdd } from "./NewEmpAdd";
+import Modal from "react-modal";
 
 const EmpList = () => {
   const { employees } = useSnapshot(employeeStore);
 
-  const navigate = useNavigate();
   // for adding new employee this function
-  const addNew = () => {
-    navigate("/addemployee");
-  };
 
   const loadEmployee = async () => {
     await EmployeeManager.getAll();
@@ -27,15 +24,10 @@ const EmpList = () => {
   return (
     <>
       <h1>EmployeeList</h1>
-      <Link to="/addemployee">
-        <button onClick={addNew} type="button" className="btn btn-primary m-3 ">
-          Add New
-        </button>
+      <div className="container p-4">
+        <NewEmpAdd />
+      </div>
 
-        <Routes>
-          <Route path="/addemployee" element={<NewEmpAdd />} />
-        </Routes>
-      </Link>
       {employees.map((i) => (
         <EmpDetail employee={i} />
       ))}

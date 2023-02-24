@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, Route, Routes } from "react-router-dom";
 import { employee } from "../../Model/EmployeeApiResponse";
 import { NewEmpAdd } from "./NewEmpAdd";
@@ -11,6 +11,8 @@ interface Props {
 }
 
 export const EmpDetail = ({ employee }: Props) => {
+  const [isLoad, setIsLoad] = useState(false);
+
   //Select employee using id
   const selectEmp = () => {
     EmployeeManager.deleteById(employee.id);
@@ -27,9 +29,11 @@ export const EmpDetail = ({ employee }: Props) => {
     // console.log("para", paragraph);
   };
 
-  console.log(isEditable);
   return (
     <div className="container">
+      <Modal isOpen={isLoad}>
+        <h2>Loading...</h2>
+      </Modal>
       <div className="card mt-3">
         {/* <h3>Email: {employee.id}</h3> */}
         <p id="editable" className="editable">
