@@ -5,21 +5,23 @@ import { NewEmpAdd } from "./NewEmpAdd";
 import { useNavigate } from "react-router-dom";
 import { EmployeeServices } from "../../Services/EmployeeServices";
 import { EmployeeManager } from "../../Managers/EmployeeManager";
+// import ReactModal from "react-modal";
+// import Modal from "react-modal";
 
 interface Props {
   employee: employee;
 }
 
 export const EmpDetail = ({ employee }: Props) => {
-  const [isLoad, setIsLoad] = useState(false);
+  // const [isLoad, setIsLoad] = useState(false);
 
   //Select employee using id
   const selectEmp = () => {
     EmployeeManager.deleteById(employee.id);
   };
 
-  let isEditable = false;
   const updateEmp = () => {
+    // setIsLoad(true);
     console.log("Updated");
     EmployeeServices.updateEmployee();
     // var paragraph: any = document.getElementById("editable");
@@ -27,13 +29,14 @@ export const EmpDetail = ({ employee }: Props) => {
     // input.value = paragraph?.textContent;
     // paragraph.parentNode.replaceChild(input, paragraph);
     // console.log("para", paragraph);
+    // setIsLoad(false);
   };
 
   return (
     <div className="container">
-      <Modal isOpen={isLoad}>
+      {/* <Modal isOpen={isLoad} onRequestClose={() => {}}>
         <h2>Loading...</h2>
-      </Modal>
+      </Modal> */}
       <div className="card mt-3">
         {/* <h3>Email: {employee.id}</h3> */}
         <p id="editable" className="editable">
