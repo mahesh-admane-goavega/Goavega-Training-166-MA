@@ -9,36 +9,24 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
+import { useNavigate } from "react-router-dom";
+import { navbarStyles } from "./Style";
+import { Divider } from "@mui/material";
 
-type Props = {};
-
-export const NavBar = (props: Props) => {
+export const NavBar = () => {
+  const navigate = useNavigate();
   return (
-    <div>
-      <Drawer
-        sx={{
-          width: 240,
-          flexShrink: 0,
-          "& .MuiDrawer-paper": {
-            width: 240,
-            boxSizing: "border-box",
-          },
-        }}
-        variant="permanent"
-        anchor="left"
-      >
-        <Toolbar />
-        <List>
-          {mainNavbarItems.map((text, index) => (
-            <ListItem key={text.id} disablePadding>
-              <ListItemButton>
-                <ListItemIcon>{text.icon}</ListItemIcon>
-                <ListItemText primary={text.label} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
-      </Drawer>
-    </div>
+    <Drawer sx={navbarStyles.drawer} variant="permanent" anchor="left">
+      <Toolbar />
+      <Divider />
+      <List>
+        {mainNavbarItems.map((item, index) => (
+          <ListItem key={item.id} onClick={() => navigate(item.route)}>
+            <ListItemIcon sx={navbarStyles.icons}>{item.icon}</ListItemIcon>
+            <ListItemText sx={navbarStyles.text} primary={item.label} />
+          </ListItem>
+        ))}
+      </List>
+    </Drawer>
   );
 };
