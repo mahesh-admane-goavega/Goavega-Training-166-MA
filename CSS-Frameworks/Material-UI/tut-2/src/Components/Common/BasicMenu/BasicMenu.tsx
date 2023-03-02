@@ -1,12 +1,10 @@
 import React from "react";
-import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import Fade from "@mui/material/Fade";
 
 type Props = {};
 
-export const BasicMenu = ({ anchorEl, open, handleClose }: any) => {
+export const BasicMenu = ({ anchorEl, open, handleClose, menuItem }: any) => {
   return (
     <div>
       <Menu
@@ -15,9 +13,10 @@ export const BasicMenu = ({ anchorEl, open, handleClose }: any) => {
         open={open}
         onClose={handleClose}
       >
-        <MenuItem onClick={handleClose}>Profile</MenuItem>
-        <MenuItem onClick={handleClose}>My account</MenuItem>
-        <MenuItem onClick={handleClose}>Logout</MenuItem>
+        {menuItem.map((item: any) => (
+          <MenuItem onClick={handleClose}>{item.message}</MenuItem>
+        ))}
+        {}
       </Menu>
     </div>
   );

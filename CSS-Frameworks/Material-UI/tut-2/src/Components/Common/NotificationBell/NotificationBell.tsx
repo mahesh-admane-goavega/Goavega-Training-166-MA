@@ -15,9 +15,6 @@ export const NotificationBell = ({
   badgeContent,
   badgesColor,
 }: any) => {
-  const newNotification = `${badgeContent} notification recived`;
-  const noNewNotification = `No new Notification`;
-
   const [open, setOpen] = React.useState(false);
   const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -31,19 +28,37 @@ export const NotificationBell = ({
     setOpen(false);
   };
 
+  const notification = [
+    {
+      id: 1,
+      message: "First Notification",
+    },
+    {
+      id: 2,
+      message: "Second Notification",
+    },
+  ];
+
+  const newNotification = `${notification.length} notification recived`;
+  const noNewNotification = `No new Notification`;
+
   return (
     <div>
       <Tooltip
-        onClick={mydata}
-        title={badgeContent ? newNotification : noNewNotification}
+        title={notification.length ? newNotification : noNewNotification}
       >
         <IconButton onClick={handledOpen} color="primary">
-          <Badge badgeContent={badgeContent} color={badgesColor}>
-            <NotificationsIcon />
+          <Badge badgeContent={notification.length} color={badgesColor}>
+            <NotificationsIcon sx={{ color: "white" }} />
           </Badge>
         </IconButton>
       </Tooltip>
-      <BasicMenu anchorEl={anchorEl} open={open} handleClose={handleClose} />
+      <BasicMenu
+        menuItem={notification}
+        anchorEl={anchorEl}
+        open={open}
+        handleClose={handleClose}
+      />
     </div>
   );
 };
