@@ -8,6 +8,7 @@ export const CommonButton = ({
   size,
   sx,
   varient,
+  click,
 }: any) => {
   return (
     <Button
@@ -16,6 +17,7 @@ export const CommonButton = ({
       size={size}
       sx={sx}
       variant={varient}
+      onClick={click}
     >
       {children}
     </Button>

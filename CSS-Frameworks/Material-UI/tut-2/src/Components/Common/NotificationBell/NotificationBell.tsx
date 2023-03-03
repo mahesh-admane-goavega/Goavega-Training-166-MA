@@ -5,11 +5,6 @@ import IconButton from "@mui/material/IconButton/IconButton";
 import Tooltip from "@mui/material/Tooltip";
 import { BasicMenu } from "../BasicMenu/BasicMenu";
 
-// type Props = {
-//   badgeContent: Node;
-//   color;
-// };
-
 export const NotificationBell = ({
   mydata,
   badgeContent,

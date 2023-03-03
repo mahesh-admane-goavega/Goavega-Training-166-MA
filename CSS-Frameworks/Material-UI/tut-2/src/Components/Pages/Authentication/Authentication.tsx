@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Grid from "@mui/material/Grid";
 import { CommonButton } from "../../Common/CommonButton/CommonButton";
 import { NotificationBell } from "../../Common/NotificationBell/NotificationBell";
@@ -12,14 +12,35 @@ import { Box } from "@mui/system";
 import RefreshIcon from "@mui/icons-material/Refresh";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography/Typography";
+import SpringModal from "../../Common/Modal/Modal";
+import { UserManager } from "../../../Managers/UserManager";
+
+import { useSnapshot } from "valtio";
+import { userStore } from "../../../Stores/UserStore";
+import { UserCard } from "../../Common/BasicCard/UserCard";
 
 export const Authentication = () => {
+  const users = useSnapshot(userStore);
+  console.log("snap", users.user);
+
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => setOpen(false);
+
+  //api fetch
+  const loadUsers = async () => {
+    await UserManager.getAllUsers();
+  };
+
+  useEffect(() => {
+    loadUsers();
+  }, []);
+
   const getSearchBar = () => {
     const handleChange = (input: any) => {
       console.log(input);
-    };
-    const addUser = () => {
-      console.log("Clicked");
     };
 
     const style = {
@@ -27,7 +48,7 @@ export const Authentication = () => {
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
-        paddingLeft: "20px",
+        paddingLeft: "6px",
         paddingRight: "20px",
         height: "65px",
         backgroundColor: "#f9f9f9",
@@ -40,6 +61,7 @@ export const Authentication = () => {
 
     return (
       <Box sx={style.wrapper}>
+        <SpringModal colseHandle={handleClose} openHandle={open} />
         <SearchBar
           placeholder="Search by email address, phone number, or user UID"
           onChange={(event: any) => handleChange(event?.target.value)}
@@ -50,7 +72,7 @@ export const Authentication = () => {
             sx={style.addUserButton}
             varient="contained"
             size="large"
-            onClick={addUser}
+            click={handleOpen}
           >
             Add User
           </CommonButton>
@@ -64,16 +86,25 @@ export const Authentication = () => {
 
   const getContent = () => {
     return (
-      <Typography
-        align="center"
+      <Grid
+        container
+        spacing={12}
+        // align="center"
         sx={{
-          margin: "40px 16px",
+          margin: "10px 10px",
           color: "rgba(0,0,0,0.6)",
           fontSize: "1.3rem",
+          // justifyContent: "space-between",
+          // display: "flex",
+          gap: "35px",
+          // flexWrap: "wrap",
         }}
       >
-        No more user found...!
-      </Typography>
+        {/* No more user found...! */}
+        {users.user.map((data) => (
+          <UserCard userData={data} />
+        ))}
+      </Grid>
     );
   };
 
@@ -93,8 +124,3 @@ export const Authentication = () => {
     </Grid>
   );
 };
-
-/*
-
-
-*/
