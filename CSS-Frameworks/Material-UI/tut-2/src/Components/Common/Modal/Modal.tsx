@@ -82,7 +82,7 @@ const style = (theme: Theme) => ({
   padding: "16px 32px 24px 32px",
 });
 
-export default function SpringModal({ colseHandle, openHandle }: any) {
+export default function SpringModal({ colseHandle, openHandle, form }: any) {
   return (
     <div>
       {/* <Button onClick={handleOpen}>Open modal</Button> */}
@@ -95,9 +95,7 @@ export default function SpringModal({ colseHandle, openHandle }: any) {
         slots={{ backdrop: Backdrop }}
       >
         <Fade in={openHandle}>
-          <Box sx={style}>
-            <AddUser />
-          </Box>
+          <Box sx={style}>{form}</Box>
         </Fade>
       </Modal>
     </div>

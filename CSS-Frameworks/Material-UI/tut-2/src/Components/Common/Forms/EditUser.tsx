@@ -8,18 +8,19 @@ import { UserManager } from "../../../Managers/UserManager";
 
 type Props = {};
 
-export const AddUser = (props: Props) => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [role, setRole] = useState("");
+export const EditUser = ({ userData }: any) => {
+  const [name, setName] = useState(userData.attributes.Full_Name);
+  const [email, setEmail] = useState(userData.attributes.Email);
+  const [role, setRole] = useState(userData.attributes.Role);
 
   const onSubmit = () => {
     const data = {
+      id: userData.id,
       Full_Name: String(name),
       Role: String(role),
       Email: String(email),
     };
-    UserManager.addUser(data);
+    UserManager.updateUser(data);
   };
   return (
     <>
@@ -61,7 +62,7 @@ export const AddUser = (props: Props) => {
         sx={{ ml: 18, mt: 2 }}
         varient="contained"
       >
-        Add User
+        Save
       </CommonButton>
     </>
   );

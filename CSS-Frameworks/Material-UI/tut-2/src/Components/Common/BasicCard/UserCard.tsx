@@ -37,7 +37,7 @@ export const UserCard = ({ userData }: any) => {
         <CardActions>
           <Box sx={{ marginLeft: "80%", cursor: "pointer" }}>
             {/* <MoreVertIcon fontSize="small" /> */}
-            <Option props={Number(userData.id)} />
+            <Option userData={userData} />
           </Box>
         </CardActions>
       </Card>

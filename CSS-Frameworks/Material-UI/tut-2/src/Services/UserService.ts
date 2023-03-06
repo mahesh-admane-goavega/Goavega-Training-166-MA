@@ -1,3 +1,4 @@
+import { UserManager } from "../Managers/UserManager";
 import { user, userApiResp } from "../Modals/UserApiResponse";
 
 import api from "./Api";
@@ -12,7 +13,6 @@ export class UserService {
 
   // add user
   static addUser = async (myData: any) => {
-    console.log(myData.Full_Name);
     await api
       .post<any>("/employees", {
         data: {
@@ -25,10 +25,24 @@ export class UserService {
     return console.log("Success!");
   };
 
+  // update users
+  static updateUser = async (myData: any) => {
+    const resp = await api
+      .put<any>(`/employees/${myData.id}`, {
+        data: {
+          Full_Name: myData.Full_Name,
+          Role: myData.Role,
+          Email: myData.Email,
+        },
+      })
+      .catch(() => null);
+    if (!resp) return null;
+    return console.log("Successfully Updated.!");
+  };
+
   // delete user
   static deleteUser = async (id: number) => {
-    console.log("Id from service", id);
     await api.delete<any>(`/employees/${id}`).catch(() => null);
-    return console.log("Deleted Sucessfuly...!");
+    return console.log("Deleted");
   };
 }

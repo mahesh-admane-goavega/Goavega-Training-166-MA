@@ -11,18 +11,18 @@ import { Box } from "@mui/system";
 
 import RefreshIcon from "@mui/icons-material/Refresh";
 import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography/Typography";
 import SpringModal from "../../Common/Modal/Modal";
 import { UserManager } from "../../../Managers/UserManager";
 
 import { useSnapshot } from "valtio";
 import { userStore } from "../../../Stores/UserStore";
 import { UserCard } from "../../Common/BasicCard/UserCard";
+import { AddUser } from "../../Common/Forms/AddUser";
 
 export const Authentication = () => {
   const users = useSnapshot(userStore);
-  console.log("snap", users.user);
 
+  // modals
   const [open, setOpen] = useState(false);
   const handleOpen = () => {
     setOpen(true);
@@ -61,7 +61,11 @@ export const Authentication = () => {
 
     return (
       <Box sx={style.wrapper}>
-        <SpringModal colseHandle={handleClose} openHandle={open} />
+        <SpringModal
+          form={<AddUser />}
+          colseHandle={handleClose}
+          openHandle={open}
+        />
         <SearchBar
           placeholder="Search by email address, phone number, or user UID"
           onChange={(event: any) => handleChange(event?.target.value)}
@@ -94,16 +98,18 @@ export const Authentication = () => {
           margin: "10px 10px",
           color: "rgba(0,0,0,0.6)",
           fontSize: "1.3rem",
+          gap: "35px",
           // justifyContent: "space-between",
           // display: "flex",
-          gap: "35px",
           // flexWrap: "wrap",
         }}
       >
         {/* No more user found...! */}
-        {users.user.map((data) => (
-          <UserCard userData={data} />
-        ))}
+        {users.user.length ? (
+          users.user.map((data) => <UserCard userData={data} />)
+        ) : (
+          <h1 style={{ marginLeft: "30%" }}>No more user found...!</h1>
+        )}
       </Grid>
     );
   };

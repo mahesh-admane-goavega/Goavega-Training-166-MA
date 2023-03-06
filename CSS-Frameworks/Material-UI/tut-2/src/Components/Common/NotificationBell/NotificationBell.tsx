@@ -19,7 +19,6 @@ export const NotificationBell = ({
   };
 
   const handleClose = () => {
-    console.log("Clicked");
     setOpen(false);
   };
 
