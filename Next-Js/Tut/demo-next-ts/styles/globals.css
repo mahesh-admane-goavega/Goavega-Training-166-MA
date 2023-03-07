@@ -1,0 +1,12 @@
+nav {
+  margin: 10px auto 80px;
+  padding: 10px 0;
+  background-color: aqua;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.site-name a {
+  margin-left: 12px;
+}
