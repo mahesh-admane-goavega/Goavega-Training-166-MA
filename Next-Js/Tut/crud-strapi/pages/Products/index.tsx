@@ -1,41 +1,23 @@
 import ProductCard from "@/Components/ProductCard";
 import { productType } from "@/Models";
 import { GetServerSideProps, GetStaticProps } from "next";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-interface Props {
-  products: any;
-}
+const Products = () => {
+  const [products, setProducts] = useState<any[]>([]);
 
-export const getStaticProps: GetStaticProps<Props> = async () => {
-  const res = await fetch("http://127.0.0.1:1337/api/products");
-  const products: any = await res.json();
-  console.log("here res", products);
-  return {
-    props: {
-      products,
-    },
-  };
-};
-
-// type Props = {
-//   authData: any;
-// };
-
-// export const getStaticProps = async () => {
-//   const resp = await fetch("http://localhost:1337/api/products");
-//   const mydata = await resp.json();
-//   return {
-//     props: { authData: mydata },
-//   };
-// };
-
-const Products = ({ products }: any) => {
-  console.log("This is product", products.data);
+  useEffect(() => {
+    async function fetchData() {
+      const res = await fetch("/api/products");
+      const data = await res.json();
+      setProducts(data.data);
+    }
+    fetchData();
+  }, []);
   return (
     <div>
-      {products.data.map((item: any) => (
-        <ProductCard props={item} />
+      {products.map((item: any) => (
+        <ProductCard props={item} key={item.id} />
       ))}
     </div>
   );

@@ -15,7 +15,7 @@ const ProductCard = ({ props }: any) => {
         <Link href={"/Products/" + props.id} key={props.id}>
           <div className="card-link">Delete</div>
         </Link>
-        <Link href={""}>
+        <Link href={`/Products/updates/${props.id}`} key={props.id}>
           <div className="card-link">Update</div>
         </Link>
       </div>

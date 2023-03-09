@@ -1,41 +1,21 @@
-import axios from "axios";
+import AddProduct from "@/pages/AddProduct";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
-import { json } from "stream/consumers";
 
 type Props = {};
 
-var isRedirect = false;
-const AddProduct = (props: Props) => {
+const updateProduct = (props: Props) => {
+  const router = useRouter();
+  console.log(router.query.id);
+
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
 
-  const router = useRouter();
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Submitted");
-
-    try {
-      const response = await axios.post<any>("/api/products", {
-        data: {
-          Title: title,
-          Price: price,
-          Description: description,
-        },
-      });
-      console.log("ApI Response", response.data);
-    } catch (error) {
-      console.log(error);
-    }
-    isRedirect = true;
   };
 
-  if (isRedirect) {
-    useEffect(() => {
-      router.push("/Products");
-    }, []);
-  }
   return (
     <form className="m-5" onSubmit={handleSubmit}>
       <div className="form-group mt-3">
@@ -80,4 +60,4 @@ const AddProduct = (props: Props) => {
   );
 };
 
-export default AddProduct;
+export default updateProduct;

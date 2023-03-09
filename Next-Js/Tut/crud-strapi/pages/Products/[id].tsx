@@ -6,11 +6,10 @@ type Props = {};
 
 const Delete = (props: Props) => {
   const router = useRouter();
-  console.log(router.query.id);
 
   const handleDelete = async () => {
     const res = await axios
-      .delete(`http://127.0.0.1:1337/api/products/ ${router.query.id}`)
+      .delete(`/api/products/ ${router.query.id}`)
       .catch(() => null);
 
     if (!res) return null;
@@ -18,8 +17,8 @@ const Delete = (props: Props) => {
   };
   handleDelete();
   return (
-    <div className="alert alert-danger" role="alert">
-      This is a danger alert—check it out!
+    <div className="container">
+      <h1 className="m-5">One Item Deleted...!</h1>
     </div>
   );
 };
